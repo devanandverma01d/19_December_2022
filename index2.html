@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML and input value to display the content area of an element/tag and input value of an input element
+    </title>
+    <style>
+        /*Here we can writew css codes*/
+        div#demo {
+            width: 500px;
+            height: 500px;
+            background-color: orange;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px 35px 10px 35px;
+            box-shadow: 10px 10px 3px;
+        }
+    </style>
+    <script src="./js/script.js"></script>
+    <script>
+        /*we can write JS code before closing of head tag*/
+    </script>
+</head>
+
+<body style=background-color:#373737>
+    <div id="demo">
+        <div data-x="1">Devanand Verma</div>
+        <p class="myparagraph"></p>
+        <h1 id="myheading"></h1>
+        <hr>
+        <form action="">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="other">other</option>
+            </select>
+            <input type="button" value="Submit" onclick="submitdata()">
+        </form>
+        <button onclick="dev()">Click me</button>
+    </div>
+
+
+    <script>
+        //let's define function
+        //1. function definition
+
+        //object.method()
+        var element = document.querySelector('div[data-x="1"]');
+        let element2 = document.querySelector('p.myparagraph');
+        let full_name = document.querySelector('input#fullname');
+        console.log(element.innerHTML);
+        console.log(element2);
+        console.log(full_name);
+        element2.innerHTML = "Hello " + element.innerHTML;
+
+        function dev() {  //This is function definition
+            console.log('Hello from body tag');
+            full_name.value = "Hello " + element.innerHTML;
+        }
+        let d1 = document.querySelector('input#fullname');
+        let d2 = document.querySelector('select#gender');
+
+        //1. Function definition
+        function submitdata() {
+            console.log(d1.value);
+            console.log(d2.value);
+            //document.write('<div>' + d1.value + " " + d2.value + '</div>')
+
+            document.getElementById('myheading').innerHTML = d1.value + " " + d2.value;
+
+        }
+    </script>
+</body>
+
+</html>
